@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, TextInput, Alert, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import Header from './Header'; 
 
 const FormularioCadastro = () => {
@@ -49,7 +49,10 @@ const FormularioCadastro = () => {
           keyboardType="numeric"
         />
 
-        <Button title="Cadastrar" onPress={handleCadastro} />
+        {/* Substituí o Button pelo TouchableOpacity */}
+        <TouchableOpacity style={styles.botao} onPress={handleCadastro}>
+          <Text style={styles.textoBotao}>Cadastrar</Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );
@@ -87,7 +90,20 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     width: '100%',
   },
-  
+  botao: {
+    backgroundColor: '#000', // Cor preta do botão
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center', // Centraliza o texto no botão
+    justifyContent: 'center',
+    marginTop: 20, // Espaçamento superior
+    width: '100%', // Botão ocupando toda a largura
+  },
+  textoBotao: {
+    color: '#fff', // Texto branco
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
 });
 
 export default FormularioCadastro;
